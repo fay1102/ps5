@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./p5.js"></script>
+  <title>p5.js Interactive Sketch</title>
+</head>
+<body>
+  <script>
+    // Declare a custom variable
+    let circleSize = 50;
+
+    function setup() {
+      createCanvas(400, 400);
+    }
+
+    function draw() {
+      background(220);
+
+      // Draw a circle at the mouse position
+      fill(0, 128, 255); // Set fill color to blue
+      ellipse(mouseX, mouseY, circleSize, circleSize);
+
+      // Draw text
+      textSize(16);
+      fill(255, 0, 0); // Set fill color to red
+      text("Click to change color", 10, 20);
+
+      // Draw a rectangle that follows the mouse horizontally
+      fill(255, 255, 0); // Set fill color to yellow
+      rect(mouseX, 200, 50, 50);
+    }
+
+    function mousePressed() {
+      // Change the color of the circle when mouse is pressed
+      let randomColor = color(random(255), random(255), random(255));
+      fill(randomColor);
+
+      // Increase the size of the circle
+      circleSize += 10;
+    }
+  </script>
+</body>
+</html>
